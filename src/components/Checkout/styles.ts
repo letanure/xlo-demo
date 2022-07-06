@@ -151,6 +151,7 @@ export const BoxTitle = styled.div`
   font-weight: 500;
   color: rgb(0, 47, 52);
   margin: 0px 0px 8px;
+  font-weight: 600;
 `
 export const BoxSubTitle = styled.div`
   font-weight: 500;
@@ -215,4 +216,13 @@ export const DeliveryMethodsMessageLink = styled.a`
   color: rgb(58, 119, 255);
   margin-left: 4px;
   font-weight: 600;
+`
+export const paymentMethodInfo = styled.div`
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(0, 47, 52);
+  margin: 16px 0px;
+`
+export const paymentMethodOption = styled.div`
+  color: #002f34;
 `

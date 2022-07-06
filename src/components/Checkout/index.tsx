@@ -38,6 +38,9 @@ const Main = () => {
       termsAndConditionsLink: 'terms and conditions',
       yourDataTitle: 'Your data',
       paymentMethodTitle: 'Payment method',
+      paymentMethodOption1:
+        'The item can be purchased using this payment method:',
+      paymentMethodBlik: 'Online payments - BLIK, Bank transfer',
       supportUkraineTitle: '🇺🇦 Support Ukraine',
       shoppingSecurity: 'Shopping security',
       paymentDetails: 'Payment details',
@@ -57,6 +60,9 @@ const Main = () => {
       termsAndConditionsLink: 'Sprawdź warunki',
       yourDataTitle: 'Twoje dane',
       paymentMethodTitle: 'Metoda płatności',
+      paymentMethodOption1:
+        'Przedmiot można kupić przy użyciu tej metody płatności:',
+      paymentMethodBlik: 'Płatności online - BLIK, Przelew bankowy',
       supportUkraineTitle: '🇺🇦 Wesprzyj Ukrainę',
       shoppingSecurity: 'Bezpieczeństwo zakupów',
       paymentDetails: 'Szczegóły płatności',
@@ -211,6 +217,10 @@ const Main = () => {
         </S.Box>
         <S.Box>
           <S.BoxTitle>{i18n.paymentMethodTitle}</S.BoxTitle>
+          <S.paymentMethodInfo>{i18n.paymentMethodOption1}</S.paymentMethodInfo>
+          <S.paymentMethodOption>
+            {i18n.paymentMethodBlik}
+          </S.paymentMethodOption>
         </S.Box>
         <S.Box>
           <S.BoxTitle>{i18n.supportUkraineTitle}</S.BoxTitle>
