@@ -20,6 +20,10 @@
     "jsx": "preserve",
     "incremental": true
   },
+  "paths": {
+    "@/components/*": ["components/*"],
+    "@/ui/*": ["ui/*"]
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
