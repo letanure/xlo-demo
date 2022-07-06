@@ -7,9 +7,3 @@ interface Language {
 interface Languages {
   [key: string]: Language
 }
-
-interface PriceProps {
-  value: string
-  lineThrough?: boolean
-  hasAsterisk?: boolean
-}
