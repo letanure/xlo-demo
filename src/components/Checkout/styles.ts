@@ -44,7 +44,7 @@ export const TextBack = styled.div`
 
 export const Content = styled.main`
   ${() => css`
-    padding: 0px;
+    padding: 0 0 100px 0;
     ${media.greaterThan('medium')`
       margin: 0px auto;
       max-width: 1236px;

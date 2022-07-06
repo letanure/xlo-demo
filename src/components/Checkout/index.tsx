@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import * as S from './styles'
-import Actions from './Actions'
+import Actions from './Actions/index'
 import DeliveryMethods from './DeliveryMethods'
 import Header from '../../ui/Header'
 import Invoice from './Invoice'
