@@ -34,7 +34,8 @@ const Main = () => {
       backText: 'Buy with delivery',
       deliveryMethodsTitle: 'Delivery method',
       deliveryMethodsSubTitle: 'Pickup at the selected point.',
-      termsAndConditions: '* Check the terms and conditions',
+      termsAndConditionsText: '* Check the',
+      termsAndConditionsLink: 'terms and conditions',
       yourDataTitle: 'Your data',
       paymentMethodTitle: 'Payment method',
       supportUkraineTitle: '🇺🇦 Support Ukraine',
@@ -43,13 +44,17 @@ const Main = () => {
       subject: 'Subject:',
       shippingCost: 'Shipping cost:',
       service: 'Service:',
-      totalCost: 'Total cost:'
+      totalCost: 'Total cost:',
+      pickupOn:
+        'Pick up at the Post Office, Żabka store or at the Orlen station',
+      pickApoint: 'Pick a point'
     },
     pl: {
       backText: 'Kup z dostawą',
       deliveryMethodsTitle: 'Sposób dostawy',
       deliveryMethodsSubTitle: 'Odbiór w wybranym punkcie.',
-      termsAndConditions: '* Sprawdź warunki',
+      termsAndConditionsText: '* Cena promocyjna',
+      termsAndConditionsLink: 'Sprawdź warunki',
       yourDataTitle: 'Twoje dane',
       paymentMethodTitle: 'Metoda płatności',
       supportUkraineTitle: '🇺🇦 Wesprzyj Ukrainę',
@@ -58,7 +63,10 @@ const Main = () => {
       subject: 'Przedmiot:',
       shippingCost: 'Koszt przesyłki:',
       service: 'Usługa serwisowa:',
-      totalCost: 'Całkowity koszt:'
+      totalCost: 'Całkowity koszt:',
+      pickupOn:
+        'Odbierz w Urzędzie Pocztowym, sklepie Żabka lub na stacji Orlen',
+      pickApoint: 'Wybierz punkt'
     }
   }
   const i18n: Language = texts[params.language]
@@ -159,14 +167,43 @@ const Main = () => {
           <S.BoxSubTitle>{i18n.deliveryMethodsSubTitle}</S.BoxSubTitle>
           <S.DeliveryMethodsWrapper>
             <S.DeliveryMethodBox>
-              <S.DeliveryMethodTitle>Polish Post</S.DeliveryMethodTitle>
-              <S.DeliveryMethodSubtitle>
-                Pick up at the Post Office, Żabka store or at the Orlen station
-              </S.DeliveryMethodSubtitle>
+              <S.DeliveryMethodBoxHeader>
+                <S.DeliveryMethodTitle>Poczta Polska</S.DeliveryMethodTitle>
+                <S.Logo
+                  src="/img/logo-poczta-polska.svg"
+                  width="42"
+                  height="24"
+                />
+              </S.DeliveryMethodBoxHeader>
+              <S.DeliveryMethodBoxContent>
+                <S.DeliveryMethodBoxContentPrice>
+                  <Price
+                    value={params.priceDelivery}
+                    hasAsterisk={!!params.priceDeliveryOriginal}
+                  />
+                  {params.priceDeliveryOriginal && (
+                    <Price
+                      value={params.priceDeliveryOriginal}
+                      lineThrough={true}
+                    />
+                  )}
+                </S.DeliveryMethodBoxContentPrice>
+                <S.DeliveryMethodSubtitle>
+                  {i18n.pickupOn}
+                </S.DeliveryMethodSubtitle>
+              </S.DeliveryMethodBoxContent>
+              <S.DeliveryMethodBoxFooter>
+                <S.DeliveryMethodBoxFooterLink>
+                  {i18n.pickApoint}
+                </S.DeliveryMethodBoxFooterLink>
+              </S.DeliveryMethodBoxFooter>
             </S.DeliveryMethodBox>
           </S.DeliveryMethodsWrapper>
           <S.DeliveryMethodsMessage>
-            {i18n.termsAndConditions}
+            {i18n.termsAndConditionsText}
+            <S.DeliveryMethodsMessageLink>
+              {i18n.termsAndConditionsLink}
+            </S.DeliveryMethodsMessageLink>
           </S.DeliveryMethodsMessage>
         </S.Box>
         <S.Box>

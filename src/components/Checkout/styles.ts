@@ -29,6 +29,11 @@ export const IconInfo = styled.img`
   margin-right: 8px;
 `
 
+export const Logo = styled.img`
+  height: 24px;
+  width: 42px;
+`
+
 export const TextBack = styled.div`
   font-size: 32px;
   line-height: 34px;
@@ -71,6 +76,8 @@ export const Box = styled.div`
 
 export const BoxPicName = styled(Box)`
   display: flex;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 `
 
 export const BoxNameLocal = styled(Box)`
@@ -163,6 +170,26 @@ export const DeliveryMethodBox = styled.div`
   box-sizing: border-box;
   padding: 24px;
 `
+export const DeliveryMethodBoxHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+export const DeliveryMethodBoxContent = styled.div`
+  padding-top: 8px;
+`
+export const DeliveryMethodBoxContentPrice = styled.div`
+  font-weight: 600;
+  margin-bottom: 8px;
+`
+export const DeliveryMethodBoxFooter = styled.div``
+export const DeliveryMethodBoxFooterLink = styled.a`
+  font-size: 14px;
+  border-bottom: 2px solid #002f34;
+  padding: 0 0 2px 0;
+  display: inline-block;
+  font-weight: 600;
+`
+
 export const DeliveryMethodTitle = styled.div`
   line-height: 18px;
   color: rgb(0, 47, 52);
@@ -173,13 +200,19 @@ export const DeliveryMethodSubtitle = styled.div`
   font-size: 12px;
   line-height: 14px;
   color: rgb(64, 99, 103);
+  margin-bottom: 16px;
 `
 
 export const DeliveryMethodsMessage = styled.div`
-  color: rgb(58, 119, 255);
+  color: rgb(64, 99, 103);
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   margin: 0px;
   padding-top: 8px;
+`
+export const DeliveryMethodsMessageLink = styled.a`
+  color: rgb(58, 119, 255);
+  margin-left: 4px;
+  font-weight: 600;
 `
