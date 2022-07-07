@@ -10,9 +10,10 @@ export type FormData = {
 export interface Props {
   config: Omit<FieldConfig, 'onChange'>[]
   onChange: (data: FormData) => void
+  languageCode: string
 }
 
-const Form = ({ config, onChange }: Props) => {
+const Form = ({ config, onChange, languageCode }: Props) => {
   const [formData, setFormData] = useState<FieldData[]>([])
 
   useEffect(() => {
@@ -41,7 +42,12 @@ const Form = ({ config, onChange }: Props) => {
   return (
     <S.Form>
       {config.map((fieldConfig, index) => (
-        <FormField key={index} {...fieldConfig} onChange={handleOnChange} />
+        <FormField
+          key={index}
+          {...fieldConfig}
+          onChange={handleOnChange}
+          languageCode={languageCode}
+        />
       ))}
     </S.Form>
   )

@@ -26,6 +26,7 @@ export interface Props {
   type?: 'text' | 'email' | 'password' | 'number'
   validationRules?: ValidationRules
   onChange: (data: FieldData) => void
+  languageCode: string
 }
 const FormField = ({
   label,
@@ -33,9 +34,10 @@ const FormField = ({
   placeholder = '',
   type = 'text',
   validationRules = {},
-  onChange
+  onChange,
+  languageCode
 }: Props) => {
-  const i18n: Language = languages['en']
+  const i18n: Language = languages[languageCode]
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [fieldData, setFieldData] = useState<FieldData>({
     name: name,

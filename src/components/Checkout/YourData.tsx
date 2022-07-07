@@ -97,7 +97,11 @@ const YourData = ({ languageCode }: Props) => {
   return (
     <S.Box>
       <S.BoxTitle>{i18n.yourDataTitle}</S.BoxTitle>
-      <Form config={formConfig} onChange={handleOnChange} />
+      <Form
+        config={formConfig}
+        onChange={handleOnChange}
+        languageCode={languageCode}
+      />
     </S.Box>
   )
 }
