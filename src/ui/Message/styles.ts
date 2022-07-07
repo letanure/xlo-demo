@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 16px;
+
+  position: sticky;
+  bottom: 80px;
 `
 export const Icon = styled.img`
   width: 36px;
