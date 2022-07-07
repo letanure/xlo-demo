@@ -26,6 +26,7 @@ interface Params {
   messageCloseOnClick?: boolean
   messageHasCloseButton?: boolean
   scrollToError?: boolean
+  focusError?: boolean
 }
 
 const Checkout = () => {
@@ -46,7 +47,8 @@ const Checkout = () => {
     messageShow: true,
     messageCloseOnClick: false,
     messageHasCloseButton: true,
-    scrollToError: true
+    scrollToError: true,
+    focusError: true
   }
   const queryParams: Partial<Params> = {}
 
@@ -78,6 +80,26 @@ const Checkout = () => {
     setForceValidate(true)
     setFormSubmited(true)
     params.scrollToError && scrollToFirstError()
+    params.focusError && focusFirstError(params.scrollToError)
+  }
+
+  const focusFirstError = (waitScroll = false) => {
+    let scrollTimeout: NodeJS.Timeout
+    const firstInvalidField = formData?.fieldData.find((field) => !field.valid)
+    if (waitScroll) {
+      addEventListener('scroll', function () {
+        clearTimeout(scrollTimeout)
+        scrollTimeout = setTimeout(function () {
+          if (firstInvalidField?.ref.current) {
+            firstInvalidField.ref.current.focus()
+          }
+        }, 200)
+      })
+    } else {
+      if (firstInvalidField?.ref.current) {
+        firstInvalidField.ref.current.focus({ preventScroll: false })
+      }
+    }
   }
 
   const scrollToFirstError = () => {
