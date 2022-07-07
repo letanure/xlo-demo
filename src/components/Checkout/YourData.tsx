@@ -5,9 +5,10 @@ import { languages } from './locales'
 interface Props {
   languageCode: string
   forceValidate?: boolean
+  onChange: (data: FormData) => void
 }
 
-const YourData = ({ languageCode, forceValidate = false }: Props) => {
+const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
   const i18n: Language = languages[languageCode]
 
   const formConfig: FormProps['config'] = [
@@ -92,7 +93,7 @@ const YourData = ({ languageCode, forceValidate = false }: Props) => {
   ]
 
   const handleOnChange = (formData: FormData) => {
-    console.log('FormData UP', formData)
+    onChange(formData)
   }
 
   return (
