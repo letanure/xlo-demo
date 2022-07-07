@@ -37,6 +37,10 @@ const Checkout = () => {
   const [formData, setFormData] = useState<FormData>()
   const router = useRouter()
 
+  // fadein/out
+  // hide after x seconds
+  // hide on scroll
+
   const defaultParams: Params = {
     productName: 'Product Name',
     language: 'en',
@@ -112,9 +116,9 @@ const Checkout = () => {
     }
   }
 
-  const handleOnChangeYourData = (formData: FormData) => {
-    setFormData(formData)
-    setFormValid(formData.valid)
+  const handleOnChangeYourData = (newFormData: FormData) => {
+    setFormData(newFormData)
+    setFormValid(newFormData.valid)
   }
   const handleMessageClickClose = () => {
     setMessageClosed(true)
