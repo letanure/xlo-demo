@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const WrapperField = styled.label`
   display: block;
@@ -19,31 +19,47 @@ export const Label = styled.div`
   padding-bottom: 6px;
 `
 
-export const Input = styled.input`
-  -webkit-text-size-adjust: 100%;
-  font-family: inherit;
-  margin: 0;
-  overflow: visible;
-  font-size: 16px;
-  color: rgb(0, 47, 52);
-  background-color: rgb(242, 244, 245);
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-image: initial;
-  border-bottom: 2px solid rgb(242, 244, 245);
-  border-radius: 4px;
-  line-height: 20px;
-  outline: 0px;
-  padding: 14px 48px 14px 16px;
-  width: 100%;
-  box-sizing: border-box;
-  height: 48px;
-  :focus {
-    border-bottom-color: rgb(0, 47, 52);
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
+type InputProps = { hasError: boolean }
+
+export const Input = styled.input<InputProps>`
+  ${({ hasError }) => css`
+    -webkit-text-size-adjust: 100%;
+    font-family: inherit;
+    margin: 0;
+    overflow: visible;
+    font-size: 16px;
+    color: rgb(0, 47, 52);
+    background-color: rgb(242, 244, 245);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 2px solid rgb(242, 244, 245);
+    border-radius: 4px;
+    line-height: 20px;
+    outline: 0px;
+    padding: 14px 48px 14px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+    ${hasError &&
+    css`
+      border-bottom: 2px solid rgb(255, 86, 54);
+      background-image: url(/img/icon-error.svg);
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position: 98% center;
+    `}
+    :focus {
+      border-bottom-color: rgb(0, 47, 52);
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      ${hasError &&
+      css`
+        border-bottom: 2px solid rgb(255, 86, 54);
+      `}s
+    }
+  `}
 `
 
 export const ErrorMessage = styled.div`
