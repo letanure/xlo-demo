@@ -24,6 +24,7 @@ interface Params {
   priceService: string
   messageShow?: boolean
   messageCloseOnClick?: boolean
+  messageHasCloseButton?: boolean
 }
 
 const Checkout = () => {
@@ -41,12 +42,17 @@ const Checkout = () => {
     // priceDeliveryOriginal || 0: null, //'17.99',
     priceService: '20',
     messageShow: true,
-    messageCloseOnClick: false
+    messageCloseOnClick: false,
+    messageHasCloseButton: false
   }
   const queryParams: Partial<Params> = {}
 
   for (const key in router.query) {
-    if (['messageCloseOnClick', 'messageShow'].includes(key)) {
+    if (
+      ['messageCloseOnClick', 'messageShow', 'messageHasCloseButton'].includes(
+        key
+      )
+    ) {
       queryParams[key] = router.query[key] === 'true'
     } else {
       queryParams[key] = router.query[key] as string
@@ -109,6 +115,7 @@ const Checkout = () => {
             message={i18n.formErrorGeneric}
             onClickClose={handleMessageClickClose}
             onClick={handleMessageClick}
+            hasCloseButton={params.messageHasCloseButton as boolean}
           />
         )}
         <Actions languageCode={languageCode} onNext={handleOnNext} />
