@@ -22,7 +22,8 @@ interface Params {
   priceDelivery: string
   priceDeliveryOriginal?: string
   priceService: string
-  showMessage?: boolean
+  messageShow?: boolean
+  messageCloseOnClick?: boolean
 }
 
 const Checkout = () => {
@@ -39,12 +40,13 @@ const Checkout = () => {
     priceDelivery: '5',
     // priceDeliveryOriginal || 0: null, //'17.99',
     priceService: '20',
-    showMessage: true
+    messageShow: true,
+    messageCloseOnClick: false
   }
   const queryParams: Partial<Params> = {}
 
   for (const key in router.query) {
-    if (key === 'showMessage') {
+    if (['messageCloseOnClick', 'messageShow'].includes(key)) {
       queryParams[key] = router.query[key] === 'true'
     } else {
       queryParams[key] = router.query[key] as string
@@ -70,6 +72,9 @@ const Checkout = () => {
   }
   const handleMessageClickClose = () => {
     setMessageClosed(true)
+  }
+  const handleMessageClick = () => {
+    params.messageCloseOnClick && setMessageClosed(true)
   }
 
   return (
@@ -99,10 +104,11 @@ const Checkout = () => {
         <PaymentMethod languageCode={languageCode} />
         <SupportUkraine languageCode={languageCode} />
         <ShoppingSecurity languageCode={languageCode} />
-        {formSubmited && !formValid && params.showMessage && !messageClosed && (
+        {formSubmited && !formValid && params.messageShow && !messageClosed && (
           <Message
             message={i18n.formErrorGeneric}
             onClickClose={handleMessageClickClose}
+            onClick={handleMessageClick}
           />
         )}
         <Actions languageCode={languageCode} onNext={handleOnNext} />
