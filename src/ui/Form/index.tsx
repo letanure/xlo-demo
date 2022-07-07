@@ -1,20 +1,14 @@
 import * as S from './styles'
-import FormField from '../FormField'
+import FormField, { Props as FieldConfig } from '../FormField'
 
-interface FormFieldConfig {
-  label: string
+export interface Props {
+  config: FieldConfig[]
 }
 
-type FormConfig = FormFieldConfig[]
-
-interface Props {
-  formConfig: FormConfig
-}
-
-const Form = ({ formConfig }: Props) => {
+const Form = ({ config }: Props) => {
   return (
     <S.Form>
-      {formConfig.map((fieldConfig, index) => (
+      {config.map((fieldConfig, index) => (
         <FormField key={index} {...fieldConfig} />
       ))}
     </S.Form>

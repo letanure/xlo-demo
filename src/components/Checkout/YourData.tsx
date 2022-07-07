@@ -1,6 +1,5 @@
 import * as S from './styles'
-import Form from '../../ui/Form'
-import { Props as FieldConfig } from '../../ui/FormField'
+import Form, { Props as FormProps } from '../../ui/Form'
 import { languages } from './locales'
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 const YourData = ({ languageCode }: Props) => {
   const i18n: Language = languages[languageCode]
 
-  const formConfig: FieldConfig[] = [
+  const formConfig: FormProps['config'] = [
     {
       label: i18n.formFirstName,
       validationRules: {
@@ -91,7 +90,7 @@ const YourData = ({ languageCode }: Props) => {
   return (
     <S.Box>
       <S.BoxTitle>{i18n.yourDataTitle}</S.BoxTitle>
-      <Form formConfig={formConfig} />
+      <Form config={formConfig} />
     </S.Box>
   )
 }
