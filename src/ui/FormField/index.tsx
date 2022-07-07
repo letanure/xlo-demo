@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 import * as S from './styles'
 import { languages } from '../../components/Checkout/locales'
 
@@ -17,6 +17,7 @@ export type FieldData = {
   valid: boolean
   touched: boolean
   changed: boolean
+  ref: React.RefObject<HTMLInputElement>
 }
 
 export interface Props {
@@ -39,6 +40,7 @@ const FormField = ({
   languageCode,
   forceValidate = false
 }: Props) => {
+  const ref = useRef(null)
   const i18n: Language = languages[languageCode]
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [fieldData, setFieldData] = useState<FieldData>({
@@ -46,7 +48,8 @@ const FormField = ({
     value: '',
     valid: false,
     touched: false,
-    changed: false
+    changed: false,
+    ref: ref
   })
 
   useEffect(() => {
@@ -98,7 +101,8 @@ const FormField = ({
       value: newValue,
       valid: validate(newValue),
       touched: true,
-      changed: newValue !== ''
+      changed: newValue !== '',
+      ref: ref
     })
   }
 
@@ -109,6 +113,7 @@ const FormField = ({
         {validationRules.required && <span>*</span>}
       </S.Label>
       <S.Input
+        ref={ref}
         type={type}
         placeholder={placeholder}
         onChange={(e) => handleOnChange(e.target.value)}

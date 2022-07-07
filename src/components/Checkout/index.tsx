@@ -25,6 +25,7 @@ interface Params {
   messageShow?: boolean
   messageCloseOnClick?: boolean
   messageHasCloseButton?: boolean
+  scrollToError?: boolean
 }
 
 const Checkout = () => {
@@ -32,6 +33,7 @@ const Checkout = () => {
   const [formSubmited, setFormSubmited] = useState<boolean>(false)
   const [formValid, setFormValid] = useState<boolean>(false)
   const [messageClosed, setMessageClosed] = useState<boolean>(false)
+  const [formData, setFormData] = useState<FormData>()
   const router = useRouter()
 
   const defaultParams: Params = {
@@ -43,15 +45,19 @@ const Checkout = () => {
     priceService: '20',
     messageShow: true,
     messageCloseOnClick: false,
-    messageHasCloseButton: false
+    messageHasCloseButton: true,
+    scrollToError: true
   }
   const queryParams: Partial<Params> = {}
 
   for (const key in router.query) {
     if (
-      ['messageCloseOnClick', 'messageShow', 'messageHasCloseButton'].includes(
-        key
-      )
+      [
+        'messageCloseOnClick',
+        'messageShow',
+        'messageHasCloseButton',
+        'scrollToError'
+      ].includes(key)
     ) {
       queryParams[key] = router.query[key] === 'true'
     } else {
@@ -71,9 +77,21 @@ const Checkout = () => {
     setMessageClosed(false)
     setForceValidate(true)
     setFormSubmited(true)
+    params.scrollToError && scrollToFirstError()
+  }
+
+  const scrollToFirstError = () => {
+    const firstInvalidField = formData?.fieldData.find((field) => !field.valid)
+    if (firstInvalidField?.ref.current) {
+      firstInvalidField.ref.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
+    }
   }
 
   const handleOnChangeYourData = (formData: FormData) => {
+    setFormData(formData)
     setFormValid(formData.valid)
   }
   const handleMessageClickClose = () => {
