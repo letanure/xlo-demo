@@ -1,5 +1,5 @@
 import * as S from './styles'
-import Form, { Props as FormProps } from '../../ui/Form'
+import Form, { Props as FormProps, FormData } from '../../ui/Form'
 import { languages } from './locales'
 
 interface Props {
@@ -11,22 +11,23 @@ const YourData = ({ languageCode }: Props) => {
 
   const formConfig: FormProps['config'] = [
     {
+      name: 'firstName',
       label: i18n.formFirstName,
       validationRules: {
         required: true,
-        min: 2,
         max: 30
       }
     },
     {
+      name: 'lastName',
       label: i18n.formLastName,
       validationRules: {
         required: true,
-        min: 2,
         max: 30
       }
     },
     {
+      name: 'email',
       label: i18n.formEmail,
       validationRules: {
         required: true,
@@ -34,6 +35,7 @@ const YourData = ({ languageCode }: Props) => {
       }
     },
     {
+      name: 'phone',
       label: i18n.formPhone,
       placeholder: '+48',
       validationRules: {
@@ -42,35 +44,36 @@ const YourData = ({ languageCode }: Props) => {
       }
     },
     // {
+    //   name: 'address',
     //   label: i18n.formAddress,
     //   required: true
     // },
     {
+      name: 'street',
       label: i18n.formStreet,
       validationRules: {
         required: true,
-        min: 2,
         max: 30
       }
     },
     {
+      name: 'houseNumber',
       label: i18n.formHouseNumber,
-      type: 'number',
       validationRules: {
         required: true,
-        min: 1,
         max: 5
       }
     },
     {
+      name: 'apartmentNumber',
       label: i18n.formApartmentNumber,
       validationRules: {
         required: true,
-        min: 1,
         max: 5
       }
     },
     {
+      name: 'postalCode',
       label: i18n.formPostalCode,
       validationRules: {
         required: true,
@@ -78,19 +81,23 @@ const YourData = ({ languageCode }: Props) => {
       }
     },
     {
+      name: 'city',
       label: i18n.formCity,
       validationRules: {
         required: true,
-        min: 2,
         max: 20
       }
     }
   ]
 
+  const handleOnChange = (formData: FormData) => {
+    console.log('FormData UP', formData)
+  }
+
   return (
     <S.Box>
       <S.BoxTitle>{i18n.yourDataTitle}</S.BoxTitle>
-      <Form config={formConfig} />
+      <Form config={formConfig} onChange={handleOnChange} />
     </S.Box>
   )
 }
