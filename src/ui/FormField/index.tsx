@@ -1,24 +1,34 @@
 import * as S from './styles'
 
-interface Props {
+interface ValidationRules {
+  min?: number
+  max?: number
+  required?: boolean
+  email?: boolean
+  phone?: boolean
+  postalCode?: boolean
+}
+
+export interface Props {
   label: string
   placeholder?: string
-  required?: boolean
   errorMessage?: string | null
   type?: 'text' | 'email' | 'password' | 'number'
+  validationRules?: ValidationRules
 }
 const FormField = ({
   label,
   placeholder = '',
   type = 'text',
   errorMessage = null,
-  required = false
+  validationRules = {}
 }: Props) => {
+  console.log(validationRules)
   return (
     <S.WrapperField>
       <S.Label>
         {label}
-        {required && <span>*</span>}
+        {validationRules.required && <span>*</span>}
       </S.Label>
       <S.Input type={type} placeholder={placeholder} />
       {errorMessage && <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}

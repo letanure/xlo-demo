@@ -1,5 +1,6 @@
 import * as S from './styles'
 import Form from '../../ui/Form'
+import { Props as FieldConfig } from '../../ui/FormField'
 import { languages } from './locales'
 
 interface Props {
@@ -9,23 +10,37 @@ interface Props {
 const YourData = ({ languageCode }: Props) => {
   const i18n: Language = languages[languageCode]
 
-  const formConfig = [
+  const formConfig: FieldConfig[] = [
     {
       label: i18n.formFirstName,
-      required: true
+      validationRules: {
+        required: true,
+        min: 2,
+        max: 30
+      }
     },
     {
       label: i18n.formLastName,
-      required: true
+      validationRules: {
+        required: true,
+        min: 2,
+        max: 30
+      }
     },
     {
       label: i18n.formEmail,
-      required: true
+      validationRules: {
+        required: true,
+        email: true
+      }
     },
     {
       label: i18n.formPhone,
       placeholder: '+48',
-      required: true
+      validationRules: {
+        required: true,
+        phone: true
+      }
     },
     // {
     //   label: i18n.formAddress,
@@ -33,23 +48,43 @@ const YourData = ({ languageCode }: Props) => {
     // },
     {
       label: i18n.formStreet,
-      required: true
+      validationRules: {
+        required: true,
+        min: 2,
+        max: 30
+      }
     },
     {
       label: i18n.formHouseNumber,
-      required: true
+      type: 'number',
+      validationRules: {
+        required: true,
+        min: 1,
+        max: 5
+      }
     },
     {
       label: i18n.formApartmentNumber,
-      required: true
+      validationRules: {
+        required: true,
+        min: 1,
+        max: 5
+      }
     },
     {
       label: i18n.formPostalCode,
-      required: true
+      validationRules: {
+        required: true,
+        postalCode: true
+      }
     },
     {
       label: i18n.formCity,
-      required: true
+      validationRules: {
+        required: true,
+        min: 2,
+        max: 20
+      }
     }
   ]
 
