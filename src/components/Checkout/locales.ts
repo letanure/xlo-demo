@@ -37,13 +37,31 @@ export const languages: Languages = {
     service: 'Service:',
     totalCost: 'Total cost:',
     pickupOn: 'Pick up at the Post Office, Żabka store or at the Orlen station',
-    pickApoint: 'Pick a poin',
+    pickApoint: 'Pick a point',
     actionCancel: 'Cancel',
     actionNext: 'Next',
     invoiceTitle: 'DO YOU WANT TO RECEIVE AN INVOICE FOR THE SERVICE?',
     invoiceOption: 'Yes, I would like an invoice',
     invoiceInfo:
-      '* If you want an invoice for a company, you must ask for it before purchasing'
+      '* If you want an invoice for a company, you must ask for it before purchasing',
+    formFirstName: 'First name',
+    formLastName: 'Surname',
+    formEmail: 'Email',
+    formPhone: 'Telephone',
+    formAddress: 'Your address',
+    formStreet: 'Street',
+    formHouseNumber: 'House number',
+    formApartmentNumber: 'Apartment number (optional)',
+    formPostalCode: 'Postal code  (XX-XXX)',
+    formCity: 'City',
+    formErrorPhone: 'Enter a 9-digit number registered in Poland.',
+    formErrorPostalCode: 'Enter the code in the format XX-XXX',
+    formErrorEmpty: 'This field cannot be empty. Make them up.',
+    formErrorMax30:
+      'This field can contain a maximum of 30 characters. Please enter a shorter text.',
+    formErrorMax10:
+      'This field can contain up to 10 characters. Please enter a shorter text.',
+    formErrorEmailFormat: 'Enter the e-mail in the correct format.'
   },
   pl: {
     backText: 'Kup z dostawą',
@@ -87,6 +105,25 @@ export const languages: Languages = {
     invoiceTitle: 'CZY CHCESZ OTRZYMAĆ FAKTURĘ ZA USŁUGĘ SERWISOWĄ?',
     invoiceOption: 'Tak, poproszę fakturę',
     invoiceInfo:
-      '* Jeśli chcesz otrzymać fakturę na firmę, musisz poprosić o nią przed zakupem'
+      '* Jeśli chcesz otrzymać fakturę na firmę, musisz poprosić o nią przed zakupem',
+    formFirstName: 'Imię',
+    formLastName: 'Nazwisko',
+    formEmail: 'E-mail',
+    formPhone: 'Telefon',
+    formAddress: 'TWÓJ ADRES',
+    formStreet: 'Ulica',
+    formHouseNumber: 'Numer domu',
+    formApartmentNumber: 'Numer mieszkania (opcjonalnie)',
+    formPostalCode: 'Kod pocztowy (XX-XXX)',
+    formCity: 'Miejscowość',
+    formErrorPhone:
+      'Wpisz numer zarejestrowany w Polsce, składający się z 9 cyfr.',
+    formErrorPostalCode: 'Wpisz kod w formacie XX-XXX',
+    formErrorEmpty: 'To pole nie może być puste. Uzupełnij je.',
+    formErrorMax30:
+      'This field can contain a maximum of 30 characters. Please enter a shorter text.',
+    formErrorMax10:
+      'W tym polu zmieści się najwyżej 10 znaków. Wpisz krótszy tekst.',
+    formErrorEmailFormat: 'Wpisz e-mail we właściwym formacie.'
   }
 }

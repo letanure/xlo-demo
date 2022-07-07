@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router'
 import * as S from './styles'
-import Actions from './Actions/index'
+import Actions from './Actions'
 import DeliveryMethods from './DeliveryMethods'
 import Header from '../../ui/Header'
-import Invoice from './Invoice'
 import PaymentDetails from './PaymentDetails'
 import PaymentMethod from './PaymentMethod'
 import ProductInfo from './ProductInfo'
-import ShoppingSecurity from './ShoppingSecurity/index'
+import ShoppingSecurity from './ShoppingSecurity'
 import SupportUkraine from './SupportUkraine'
 import TopNav from './TopNav'
 import YourData from './YourData'
@@ -21,7 +20,7 @@ interface Params {
   priceService: string
 }
 
-const Main = () => {
+const Checkout = () => {
   const router = useRouter()
 
   const defaultParams: Params = {
@@ -63,11 +62,10 @@ const Main = () => {
         <PaymentMethod languageCode={languageCode} />
         <SupportUkraine languageCode={languageCode} />
         <ShoppingSecurity languageCode={languageCode} />
-        <Invoice languageCode={languageCode} />
         <Actions languageCode={languageCode} />
       </S.Content>
     </S.Wrapper>
   )
 }
 
-export default Main
+export default Checkout
