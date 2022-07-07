@@ -60,7 +60,9 @@ export const languages: Languages = {
     formErrorMin: 'Min XX',
     formErrorMax:
       'This field can contain a maximum of XX characters. Please enter a shorter text.',
-    formErrorEmailFormat: 'Enter the e-mail in the correct format.'
+    formErrorEmailFormat: 'Enter the e-mail in the correct format.',
+    formErrorGeneric:
+      'There are a few missing or incorrect details in the form. Review them and try again. '
   },
   pl: {
     backText: 'Kup z dostawą',
@@ -122,6 +124,8 @@ export const languages: Languages = {
     formErrorMin: 'Min XX',
     formErrorMax:
       'W tym polu zmieści się najwyżej XX znaków. Wpisz krótszy tekst.',
-    formErrorEmailFormat: 'Wpisz e-mail we właściwym formacie.'
+    formErrorEmailFormat: 'Wpisz e-mail we właściwym formacie.',
+    formErrorGeneric:
+      'Wystąpiły błędy w formularzu. Sprawdź je i spróbuj ponownie.'
   }
 }
