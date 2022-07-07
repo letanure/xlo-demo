@@ -11,9 +11,15 @@ export interface Props {
   config: Omit<FieldConfig, 'onChange'>[]
   onChange: (data: FormData) => void
   languageCode: string
+  forceValidate?: boolean
 }
 
-const Form = ({ config, onChange, languageCode }: Props) => {
+const Form = ({
+  config,
+  onChange,
+  languageCode,
+  forceValidate = false
+}: Props) => {
   const [formData, setFormData] = useState<FieldData[]>([])
 
   useEffect(() => {
@@ -47,6 +53,7 @@ const Form = ({ config, onChange, languageCode }: Props) => {
           {...fieldConfig}
           onChange={handleOnChange}
           languageCode={languageCode}
+          forceValidate={forceValidate}
         />
       ))}
     </S.Form>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 import Actions from './Actions'
@@ -21,6 +22,7 @@ interface Params {
 }
 
 const Checkout = () => {
+  const [forceValidate, setForceValidate] = useState<boolean>(false)
   const router = useRouter()
 
   const defaultParams: Params = {
@@ -38,6 +40,10 @@ const Checkout = () => {
   }
 
   const languageCode = params.language
+
+  const handleOnNext = () => {
+    setForceValidate(true)
+  }
 
   return (
     <S.Wrapper>
@@ -58,11 +64,11 @@ const Checkout = () => {
           priceDelivery={params.priceDelivery}
           priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
         />
-        <YourData languageCode={languageCode} />
+        <YourData languageCode={languageCode} forceValidate={forceValidate} />
         <PaymentMethod languageCode={languageCode} />
         <SupportUkraine languageCode={languageCode} />
         <ShoppingSecurity languageCode={languageCode} />
-        <Actions languageCode={languageCode} />
+        <Actions languageCode={languageCode} onNext={handleOnNext} />
       </S.Content>
     </S.Wrapper>
   )

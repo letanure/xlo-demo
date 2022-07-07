@@ -4,9 +4,10 @@ import { languages } from './locales'
 
 interface Props {
   languageCode: string
+  forceValidate?: boolean
 }
 
-const YourData = ({ languageCode }: Props) => {
+const YourData = ({ languageCode, forceValidate = false }: Props) => {
   const i18n: Language = languages[languageCode]
 
   const formConfig: FormProps['config'] = [
@@ -101,6 +102,7 @@ const YourData = ({ languageCode }: Props) => {
         config={formConfig}
         onChange={handleOnChange}
         languageCode={languageCode}
+        forceValidate={forceValidate}
       />
     </S.Box>
   )

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import * as S from './styles'
 import { languages } from '../../components/Checkout/locales'
 
@@ -27,6 +27,7 @@ export interface Props {
   validationRules?: ValidationRules
   onChange: (data: FieldData) => void
   languageCode: string
+  forceValidate?: boolean
 }
 const FormField = ({
   label,
@@ -35,7 +36,8 @@ const FormField = ({
   type = 'text',
   validationRules = {},
   onChange,
-  languageCode
+  languageCode,
+  forceValidate = false
 }: Props) => {
   const i18n: Language = languages[languageCode]
   const [errorMessage, setErrorMessage] = useState<string>('')
@@ -52,34 +54,43 @@ const FormField = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fieldData])
 
-  const validate = (value: string) => {
-    const { min, max, required, email, phone, postalCode } = validationRules
-    if (required && !value) {
-      setErrorMessage(i18n.formErrorRequired)
-      return false
+  const validate = useCallback(
+    (value: string) => {
+      const { min, max, required, email, phone, postalCode } = validationRules
+      if (required && !value) {
+        setErrorMessage(i18n.formErrorRequired)
+        return false
+      }
+      if (min && value.length < min) {
+        setErrorMessage(i18n.formErrorMin.replace('XX', `${min}`))
+        return false
+      }
+      if (max && value.length > max) {
+        setErrorMessage(i18n.formErrorMax.replace('XX', `${max}`))
+        return false
+      }
+      if (email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+        setErrorMessage(i18n.formErrorEmailFormat)
+        return false
+      }
+      if (phone && !/^\+?\d{10,15}$/i.test(value)) {
+        setErrorMessage(i18n.formErrorPhone)
+        return false
+      }
+      if (postalCode && !/^\d{2}-\d{3}$/i.test(value)) {
+        setErrorMessage(i18n.formErrorPostalCode)
+        return false
+      }
+      return true
+    },
+    [i18n, validationRules]
+  )
+
+  useEffect(() => {
+    if (forceValidate) {
+      validate('')
     }
-    if (min && value.length < min) {
-      setErrorMessage(i18n.formErrorMin.replace('XX', `${min}`))
-      return false
-    }
-    if (max && value.length > max) {
-      setErrorMessage(i18n.formErrorMax.replace('XX', `${max}`))
-      return false
-    }
-    if (email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-      setErrorMessage(i18n.formErrorEmailFormat)
-      return false
-    }
-    if (phone && !/^\+?\d{10,15}$/i.test(value)) {
-      setErrorMessage(i18n.formErrorPhone)
-      return false
-    }
-    if (postalCode && !/^\d{2}-\d{3}$/i.test(value)) {
-      setErrorMessage(i18n.formErrorPostalCode)
-      return false
-    }
-    return true
-  }
+  }, [forceValidate, validate])
 
   const handleOnChange = (newValue: string) => {
     setFieldData({
@@ -90,6 +101,7 @@ const FormField = ({
       changed: newValue !== ''
     })
   }
+
   return (
     <S.WrapperField>
       <S.Label>
