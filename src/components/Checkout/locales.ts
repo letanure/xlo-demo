@@ -56,11 +56,10 @@ export const languages: Languages = {
     formCity: 'City',
     formErrorPhone: 'Enter a 9-digit number registered in Poland.',
     formErrorPostalCode: 'Enter the code in the format XX-XXX',
-    formErrorEmpty: 'This field cannot be empty. Make them up.',
-    formErrorMax30:
-      'This field can contain a maximum of 30 characters. Please enter a shorter text.',
-    formErrorMax10:
-      'This field can contain up to 10 characters. Please enter a shorter text.',
+    formErrorRequired: 'This field cannot be empty. Make them up.',
+    formErrorMin: 'Min XX',
+    formErrorMax:
+      'This field can contain a maximum of XX characters. Please enter a shorter text.',
     formErrorEmailFormat: 'Enter the e-mail in the correct format.'
   },
   pl: {
@@ -119,11 +118,10 @@ export const languages: Languages = {
     formErrorPhone:
       'Wpisz numer zarejestrowany w Polsce, składający się z 9 cyfr.',
     formErrorPostalCode: 'Wpisz kod w formacie XX-XXX',
-    formErrorEmpty: 'To pole nie może być puste. Uzupełnij je.',
-    formErrorMax30:
-      'This field can contain a maximum of 30 characters. Please enter a shorter text.',
-    formErrorMax10:
-      'W tym polu zmieści się najwyżej 10 znaków. Wpisz krótszy tekst.',
+    formErrorRequired: 'To pole nie może być puste. Uzupełnij je.',
+    formErrorMin: 'Min XX',
+    formErrorMax:
+      'W tym polu zmieści się najwyżej XX znaków. Wpisz krótszy tekst.',
     formErrorEmailFormat: 'Wpisz e-mail we właściwym formacie.'
   }
 }
