@@ -2,12 +2,12 @@ import * as S from './styles'
 
 export interface Props {
   message: string
-  onClose?: () => void
+  onClickClose?: () => void
   onClick?: () => void
 }
-const Message = ({ message, onClose, onClick }: Props) => {
-  const handleOnClose = () => {
-    onClose && onClose()
+const Message = ({ message, onClickClose, onClick }: Props) => {
+  const handleOnClickClose = () => {
+    onClickClose && onClickClose()
   }
   const handleOnClick = () => {
     onClick && onClick()
@@ -16,7 +16,7 @@ const Message = ({ message, onClose, onClick }: Props) => {
     <S.Wrapper onClick={handleOnClick}>
       <S.Icon src="/img/icon-warning.svg" />
       <S.Text>{message}</S.Text>
-      <S.ButtonClose onClick={handleOnClose} />
+      <S.ButtonClose onClick={handleOnClickClose} />
     </S.Wrapper>
   )
 }

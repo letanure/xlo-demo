@@ -29,6 +29,7 @@ const Checkout = () => {
   const [forceValidate, setForceValidate] = useState<boolean>(false)
   const [formSubmited, setFormSubmited] = useState<boolean>(false)
   const [formValid, setFormValid] = useState<boolean>(false)
+  const [messageClosed, setMessageClosed] = useState<boolean>(false)
   const router = useRouter()
 
   const defaultParams: Params = {
@@ -59,12 +60,16 @@ const Checkout = () => {
   const i18n: Language = languages[languageCode]
 
   const handleOnNext = () => {
+    setMessageClosed(false)
     setForceValidate(true)
     setFormSubmited(true)
   }
 
   const handleOnChangeYourData = (formData: FormData) => {
     setFormValid(formData.valid)
+  }
+  const handleMessageClickClose = () => {
+    setMessageClosed(true)
   }
 
   return (
@@ -94,8 +99,11 @@ const Checkout = () => {
         <PaymentMethod languageCode={languageCode} />
         <SupportUkraine languageCode={languageCode} />
         <ShoppingSecurity languageCode={languageCode} />
-        {formSubmited && !formValid && params.showMessage && (
-          <Message message={i18n.formErrorGeneric} />
+        {formSubmited && !formValid && params.showMessage && !messageClosed && (
+          <Message
+            message={i18n.formErrorGeneric}
+            onClickClose={handleMessageClickClose}
+          />
         )}
         <Actions languageCode={languageCode} onNext={handleOnNext} />
       </S.Content>
