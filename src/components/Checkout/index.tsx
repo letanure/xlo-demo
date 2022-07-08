@@ -55,7 +55,7 @@ const Checkout = () => {
     scrollToError: true,
     focusError: true,
     hideOnScroll: false,
-    hideOnClickAnywhere: true,
+    hideOnClickAnywhere: false,
     hideAfterXseconds: 0
   }
   const queryParams: Partial<Params> = {}
