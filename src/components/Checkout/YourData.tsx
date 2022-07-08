@@ -14,7 +14,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
   const formConfig: FormProps['config'] = [
     {
       name: 'firstName',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formFirstName,
       validationRules: {
         required: true,
@@ -23,7 +23,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'lastName',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formLastName,
       validationRules: {
         required: true,
@@ -32,7 +32,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'email',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formEmail,
       validationRules: {
         required: true,
@@ -41,7 +41,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'phone',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formPhone,
       placeholder: '+48',
       validationRules: {
@@ -51,13 +51,13 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     // {
     //   name: 'address',
-    //   languageCode: 'pl',
+    //   languageCode: languageCode,
     //   label: i18n.formAddress,
     //   required: true
     // },
     {
       name: 'street',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formStreet,
       validationRules: {
         required: true,
@@ -66,7 +66,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'houseNumber',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formHouseNumber,
       validationRules: {
         required: true,
@@ -75,7 +75,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'apartmentNumber',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formApartmentNumber,
       validationRules: {
         required: true,
@@ -84,7 +84,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'postalCode',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formPostalCode,
       validationRules: {
         required: true,
@@ -93,7 +93,7 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
     },
     {
       name: 'city',
-      languageCode: 'pl',
+      languageCode: languageCode,
       label: i18n.formCity,
       validationRules: {
         required: true,

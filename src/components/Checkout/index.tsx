@@ -14,6 +14,7 @@ import ShoppingSecurity from './ShoppingSecurity'
 import SupportUkraine from './SupportUkraine'
 import TopNav from './TopNav'
 import YourData from './YourData'
+import ConfigureParams from './ConfigureParams'
 
 interface Params {
   productName: string
@@ -44,7 +45,7 @@ const Checkout = () => {
 
   const defaultParams: Params = {
     productName: 'Product Name',
-    language: 'en',
+    language: 'pl',
     priceItem: '2500',
     priceDelivery: '5',
     // priceDeliveryOriginal || 0: null, //'17.99',
@@ -184,36 +185,44 @@ const Checkout = () => {
       <S.Content>
         <S.ProductName>{params.productName}</S.ProductName>
         <TopNav languageCode={languageCode} />
-        <ProductInfo productName={params.productName} />
-        <PaymentDetails
-          languageCode={languageCode}
-          priceItem={params.priceItem}
-          priceService={params.priceService}
-          priceDelivery={params.priceDelivery}
-          priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
-        />
-        <DeliveryMethods
-          languageCode={languageCode}
-          priceDelivery={params.priceDelivery}
-          priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
-        />
-        <YourData
-          languageCode={languageCode}
-          forceValidate={forceValidate}
-          onChange={handleOnChangeYourData}
-        />
-        <PaymentMethod languageCode={languageCode} />
-        <SupportUkraine languageCode={languageCode} />
-        <ShoppingSecurity languageCode={languageCode} />
-        {formSubmited && !formValid && params.messageShow && !messageClosed && (
-          <Message
-            message={i18n.formErrorGeneric}
-            onClickClose={handleMessageClickClose}
-            onClick={handleMessageClick}
-            hasCloseButton={params.messageHasCloseButton as boolean}
+        <div>
+          <ConfigureParams />
+          <ProductInfo productName={params.productName} />
+          <PaymentDetails
+            languageCode={languageCode}
+            priceItem={params.priceItem}
+            priceService={params.priceService}
+            priceDelivery={params.priceDelivery}
+            priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
           />
-        )}
-        <Actions languageCode={languageCode} onNext={handleOnNext} />
+        </div>
+        <div>
+          <DeliveryMethods
+            languageCode={languageCode}
+            priceDelivery={params.priceDelivery}
+            priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
+          />
+          <YourData
+            languageCode={languageCode}
+            forceValidate={forceValidate}
+            onChange={handleOnChangeYourData}
+          />
+          <PaymentMethod languageCode={languageCode} />
+          <SupportUkraine languageCode={languageCode} />
+          <ShoppingSecurity languageCode={languageCode} />
+          {formSubmited &&
+            !formValid &&
+            params.messageShow &&
+            !messageClosed && (
+              <Message
+                message={i18n.formErrorGeneric}
+                onClickClose={handleMessageClickClose}
+                onClick={handleMessageClick}
+                hasCloseButton={params.messageHasCloseButton as boolean}
+              />
+            )}
+          <Actions languageCode={languageCode} onNext={handleOnNext} />
+        </div>
       </S.Content>
     </S.Wrapper>
   )
