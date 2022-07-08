@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-interface Props {
+export interface Props {
   value: string
   lineThrough?: boolean
   hasAsterisk?: boolean

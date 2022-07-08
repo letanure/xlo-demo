@@ -103,6 +103,11 @@ export const PriceDetailLineLabel = styled.div`
 export const PriceDetailLineValue = styled.div`
   font-size: 14px;
 `
+interface PriceProps {
+  value?: string
+  lineThrough?: boolean
+  hasAsterisk?: boolean
+}
 
 export const Price = styled.span<PriceProps>`
   ${({ lineThrough }) => css`
