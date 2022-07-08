@@ -18,7 +18,7 @@ export const ColumnsLeft = styled.div`
   ${() => css`
     ${media.greaterThan('medium')`
       order: 1;
-  max-width: 923px;
+      max-width: 923px;
     `}
   `}
 `
@@ -211,6 +211,7 @@ export const BoxActions = styled.div`
       position: relative;
       height: 110px;
       padding: 32px;
+      box-shadow: none;
     `}
   `}
 `
