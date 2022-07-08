@@ -95,14 +95,20 @@ export const ProductName = styled.h2`
 `
 
 export const Box = styled.div`
-  background-color: rgb(255, 255, 255);
-  padding: 16px;
-  margin-bottom: 8px;
+  ${() => css`
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    margin-bottom: 8px;
+    ${media.greaterThan('medium')`
+      padding: 32px;
+    `}
+  `}
 `
 
 export const BoxPaymentDetails = styled(Box)`
   ${() => css`
     ${media.greaterThan('medium')`
+      padding: 16px;
       margin-bottom: 0px;
       margin-top: -8px;
     `}
@@ -115,6 +121,7 @@ export const BoxPicName = styled(Box)`
     margin-bottom: 0px;
     padding-bottom: 0px;
     ${media.greaterThan('medium')`
+      padding: 16px;
       display: block;
     `}
   `}
