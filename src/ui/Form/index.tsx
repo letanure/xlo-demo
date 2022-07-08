@@ -10,7 +10,7 @@ export type FormData = {
 export interface Props {
   config: Omit<FieldConfig, 'onChange'>[]
   onChange: (data: FormData) => void
-  languageCode: string
+  languageCode?: string
   forceValidate?: boolean
 }
 
