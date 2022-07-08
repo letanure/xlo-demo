@@ -100,6 +100,15 @@ export const Box = styled.div`
   margin-bottom: 8px;
 `
 
+export const BoxPaymentDetails = styled(Box)`
+  ${() => css`
+    ${media.greaterThan('medium')`
+      margin-bottom: 0px;
+      margin-top: -8px;
+    `}
+  `}
+`
+
 export const BoxPicName = styled(Box)`
   ${() => css`
     display: flex;
@@ -175,7 +184,7 @@ export const ProductNameMobile = styled.div`
     padding: 0px;
     margin: 0;
     ${media.greaterThan('medium')`
-
+      margin-bottom: 8px;
     `}
   `}
 `
@@ -210,6 +219,16 @@ export const BoxTitle = styled.div`
   color: rgb(0, 47, 52);
   margin: 0px 0px 8px;
   font-weight: 600;
+`
+
+export const BoxTitlePayment = styled(BoxTitle)`
+  ${() => css`
+    ${media.greaterThan('medium')`
+      padding-top: 16px;
+      font-weight: 600;
+      font-size: 16px;
+    `}
+  `}
 `
 export const BoxSubTitle = styled.div`
   font-weight: 500;

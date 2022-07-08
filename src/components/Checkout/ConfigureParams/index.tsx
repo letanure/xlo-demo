@@ -24,6 +24,12 @@ const ConfigureParams = () => {
       label: 'Product image'
     },
     {
+      name: 'productCityDate',
+      languageCode: 'en',
+      label: 'Product city / date',
+      placeholder: 'Warszawa- 2022-06-29 19:47'
+    },
+    {
       name: 'priceItem',
       languageCode: 'en',
       type: 'number',

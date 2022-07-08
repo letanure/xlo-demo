@@ -19,6 +19,7 @@ import ConfigureParams from './ConfigureParams'
 interface Params {
   productName: string
   productImage: string
+  productCityDate: string
   language: string
   priceItem: number
   priceDelivery: number
@@ -49,6 +50,7 @@ const Checkout = () => {
       'APPLE IPHONE 12 MINI 128 | GWAR 24ms | FAKTURA VAT 23% | klasa A+s',
     productImage:
       'https://ireland.apollo.olxcdn.com/v1/files/62d7od5dl23e3-PL/image;s=644x461',
+    productCityDate: 'Warszawa- 2022-06-29 19:47',
     language: 'pl',
     priceItem: 2500,
     priceDelivery: 5,
@@ -207,6 +209,7 @@ const Checkout = () => {
             <ProductInfo
               productName={params.productName}
               productImage={params.productImage}
+              productCityDate={params.productCityDate}
             />
             <PaymentDetails
               languageCode={languageCode}

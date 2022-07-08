@@ -24,8 +24,8 @@ const PaymentDetails = ({
   const totalOriginalPriceStr = priceItem + priceDeliveryOriginal + priceService
 
   return (
-    <S.Box>
-      <S.BoxTitle>{i18n.paymentDetails}</S.BoxTitle>
+    <S.BoxPaymentDetails>
+      <S.BoxTitlePayment>{i18n.paymentDetails}</S.BoxTitlePayment>
       <S.PriceDetail>
         <S.PriceDetailLine>
           <S.PriceDetailLineLabel>{i18n.subject}</S.PriceDetailLineLabel>
@@ -66,7 +66,7 @@ const PaymentDetails = ({
           </S.PriceDetailLineValue>
         </S.PriceDetailLine>
       </S.PriceDetail>
-    </S.Box>
+    </S.BoxPaymentDetails>
   )
 }
 
