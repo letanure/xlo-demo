@@ -1,16 +1,22 @@
 import * as S from './styles'
 
 export interface Props {
-  value: string
+  value: number
   lineThrough?: boolean
   hasAsterisk?: boolean
 }
 
 const Price = ({ value, lineThrough, hasAsterisk }: Props) => {
+  const formatNumber = (value: number) =>
+    new Intl.NumberFormat('pl-PL', {
+      style: 'currency',
+      currency: 'PLN'
+    })
+      .format(value)
+      .replace(',00', '')
   return (
     <S.Price lineThrough={lineThrough}>
-      <S.PriceValue>{value}</S.PriceValue>
-      <S.PriceCurrency>zł</S.PriceCurrency>
+      <S.PriceValue>{formatNumber(value)}</S.PriceValue>
       {hasAsterisk && '*'}
     </S.Price>
   )

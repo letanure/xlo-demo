@@ -112,7 +112,12 @@ export const BoxPicName = styled(Box)`
 `
 
 export const BoxNameLocal = styled(Box)`
-  padding: 0 0 0 16px;
+  ${() => css`
+    padding: 0 0 0 16px;
+    ${media.greaterThan('medium')`
+      padding: 0 ;
+    `}
+  `}
 `
 export const ProductImage = styled.img`
   ${() => css`
@@ -160,17 +165,19 @@ export const Price = styled.span<PriceProps>`
   `}
 `
 export const PriceValue = styled.span``
-export const PriceCurrency = styled.span`
-  margin-left: 2px;
-`
 
 export const ProductNameMobile = styled.div`
-  font-size: 18px;
-  font-weight: 500;
-  -webkit-box-flex: 1;
-  flex-grow: 1;
-  padding: 0px;
-  margin: 0;
+  ${() => css`
+    font-size: 18px;
+    font-weight: 500;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    padding: 0px;
+    margin: 0;
+    ${media.greaterThan('medium')`
+
+    `}
+  `}
 `
 
 export const BoxActions = styled.div`

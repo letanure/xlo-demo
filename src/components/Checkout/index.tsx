@@ -19,10 +19,10 @@ import ConfigureParams from './ConfigureParams'
 interface Params {
   productName: string
   language: string
-  priceItem: string
-  priceDelivery: string
-  priceDeliveryOriginal?: string
-  priceService: string
+  priceItem: number
+  priceDelivery: number
+  priceDeliveryOriginal: number
+  priceService: number
   messageShow?: boolean
   messageCloseOnClick?: boolean
   messageHasCloseButton?: boolean
@@ -46,10 +46,10 @@ const Checkout = () => {
   const defaultParams: Params = {
     productName: 'Product Name',
     language: 'pl',
-    priceItem: '2500',
-    priceDelivery: '5',
-    // priceDeliveryOriginal || 0: null, //'17.99',
-    priceService: '20',
+    priceItem: 2500,
+    priceDelivery: 5,
+    priceDeliveryOriginal: 5.5,
+    priceService: 20,
     messageShow: true,
     messageCloseOnClick: false,
     messageHasCloseButton: true,
@@ -80,6 +80,18 @@ const Checkout = () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       queryParams[key] = parseInt(router.query[key])
+    }
+    if (
+      [
+        'priceItem',
+        'priceDelivery',
+        'priceService',
+        'priceDeliveryOriginal'
+      ].includes(key)
+    ) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      queryParams[key] = parseFloat(router.query[key])
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -194,14 +206,14 @@ const Checkout = () => {
               priceItem={params.priceItem}
               priceService={params.priceService}
               priceDelivery={params.priceDelivery}
-              priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
+              priceDeliveryOriginal={params.priceDeliveryOriginal}
             />
           </S.ColumnsRight>
           <S.ColumnsLeft>
             <DeliveryMethods
               languageCode={languageCode}
               priceDelivery={params.priceDelivery}
-              priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
+              priceDeliveryOriginal={params.priceDeliveryOriginal}
             />
             <YourData
               languageCode={languageCode}

@@ -4,10 +4,10 @@ import Price from './Price'
 
 interface Props {
   languageCode: string
-  priceItem: string
-  priceService: string
-  priceDelivery: string
-  priceDeliveryOriginal: string
+  priceItem: number
+  priceService: number
+  priceDelivery: number
+  priceDeliveryOriginal: number
 }
 
 const PaymentDetails = ({
@@ -19,15 +19,9 @@ const PaymentDetails = ({
 }: Props) => {
   const i18n: Language = languages[languageCode]
 
-  const totalPriceStr = `${
-    parseFloat(priceItem) + parseFloat(priceDelivery) + parseFloat(priceService)
-  }`
+  const totalPriceStr = priceItem + priceDelivery + priceService
 
-  const totalOriginalPriceStr = `${
-    parseFloat(priceItem) +
-    parseFloat(priceDeliveryOriginal || '0') +
-    parseFloat(priceService)
-  }`
+  const totalOriginalPriceStr = priceItem + priceDeliveryOriginal + priceService
 
   return (
     <S.Box>
@@ -46,7 +40,7 @@ const PaymentDetails = ({
               value={priceDelivery}
               hasAsterisk={!!priceDeliveryOriginal}
             />
-            {priceDeliveryOriginal && (
+            {priceDeliveryOriginal && priceDeliveryOriginal > priceDelivery && (
               <Price value={priceDeliveryOriginal} lineThrough={true} />
             )}
           </S.PriceDetailLineValue>
@@ -66,7 +60,7 @@ const PaymentDetails = ({
           <S.PriceDetailLineLabel>{i18n.totalCost}</S.PriceDetailLineLabel>
           <S.PriceDetailLineValue>
             <Price value={totalPriceStr} />
-            {priceDeliveryOriginal && (
+            {priceDeliveryOriginal && priceDeliveryOriginal > priceDelivery && (
               <Price value={totalOriginalPriceStr} lineThrough={true} />
             )}
           </S.PriceDetailLineValue>

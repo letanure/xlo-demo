@@ -4,8 +4,8 @@ import Price from './Price'
 
 interface Props {
   languageCode: string
-  priceDelivery: string
-  priceDeliveryOriginal: string
+  priceDelivery: number
+  priceDeliveryOriginal: number
 }
 
 const DeliveryMethods = ({
@@ -31,9 +31,10 @@ const DeliveryMethods = ({
                 value={priceDelivery}
                 hasAsterisk={!!priceDeliveryOriginal}
               />
-              {priceDeliveryOriginal && (
-                <Price value={priceDeliveryOriginal} lineThrough={true} />
-              )}
+              {priceDeliveryOriginal &&
+                priceDeliveryOriginal > priceDelivery && (
+                  <Price value={priceDeliveryOriginal} lineThrough={true} />
+                )}
             </S.DeliveryMethodBoxContentPrice>
             <S.DeliveryMethodSubtitle>{i18n.pickupOn}</S.DeliveryMethodSubtitle>
           </S.DeliveryMethodBoxContent>
