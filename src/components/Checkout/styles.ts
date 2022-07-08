@@ -5,6 +5,32 @@ export const Wrapper = styled.main`
   background-color: #f2f4f5;
   color: #002f34;
 `
+export const WrapperColumns = styled.div`
+  ${() => css`
+    ${media.greaterThan('medium')`
+      display: flex;
+      column-gap: 16px;
+    `}
+  `}
+`
+
+export const ColumnsLeft = styled.div`
+  ${() => css`
+    ${media.greaterThan('medium')`
+      order: 1;
+  max-width: 923px;
+    `}
+  `}
+`
+
+export const ColumnsRight = styled.div`
+  ${() => css`
+    ${media.greaterThan('medium')`
+      max-width: 297px;
+  order: 2;
+    `}
+  `}
+`
 
 export const TopNav = styled.div`
   ${() => css`
@@ -135,15 +161,22 @@ export const ProductNameMobile = styled.div`
 `
 
 export const BoxActions = styled.div`
-  background-color: rgb(255, 255, 255);
-  padding: 16px;
-  box-shadow: rgb(0 0 0 / 10%) 0px -2px 4px 0px;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  margin-bottom: 8px;
-  margin-bottom: 0;
+  ${() => css`
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    box-shadow: rgb(0 0 0 / 10%) 0px -2px 4px 0px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    margin-bottom: 8px;
+    margin-bottom: 0;
+    ${media.greaterThan('medium')`
+      position: relative;
+      height: 110px;
+      padding: 32px;
+    `}
+  `}
 `
 
 export const ProductInfo = styled.div`

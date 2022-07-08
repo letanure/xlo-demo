@@ -185,44 +185,46 @@ const Checkout = () => {
       <S.Content>
         <S.ProductName>{params.productName}</S.ProductName>
         <TopNav languageCode={languageCode} />
-        <div>
-          <ConfigureParams />
-          <ProductInfo productName={params.productName} />
-          <PaymentDetails
-            languageCode={languageCode}
-            priceItem={params.priceItem}
-            priceService={params.priceService}
-            priceDelivery={params.priceDelivery}
-            priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
-          />
-        </div>
-        <div>
-          <DeliveryMethods
-            languageCode={languageCode}
-            priceDelivery={params.priceDelivery}
-            priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
-          />
-          <YourData
-            languageCode={languageCode}
-            forceValidate={forceValidate}
-            onChange={handleOnChangeYourData}
-          />
-          <PaymentMethod languageCode={languageCode} />
-          <SupportUkraine languageCode={languageCode} />
-          <ShoppingSecurity languageCode={languageCode} />
-          {formSubmited &&
-            !formValid &&
-            params.messageShow &&
-            !messageClosed && (
-              <Message
-                message={i18n.formErrorGeneric}
-                onClickClose={handleMessageClickClose}
-                onClick={handleMessageClick}
-                hasCloseButton={params.messageHasCloseButton as boolean}
-              />
-            )}
-          <Actions languageCode={languageCode} onNext={handleOnNext} />
-        </div>
+        <S.WrapperColumns>
+          <S.ColumnsRight>
+            <ConfigureParams />
+            <ProductInfo productName={params.productName} />
+            <PaymentDetails
+              languageCode={languageCode}
+              priceItem={params.priceItem}
+              priceService={params.priceService}
+              priceDelivery={params.priceDelivery}
+              priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
+            />
+          </S.ColumnsRight>
+          <S.ColumnsLeft>
+            <DeliveryMethods
+              languageCode={languageCode}
+              priceDelivery={params.priceDelivery}
+              priceDeliveryOriginal={params.priceDeliveryOriginal || '0'}
+            />
+            <YourData
+              languageCode={languageCode}
+              forceValidate={forceValidate}
+              onChange={handleOnChangeYourData}
+            />
+            <PaymentMethod languageCode={languageCode} />
+            <SupportUkraine languageCode={languageCode} />
+            <ShoppingSecurity languageCode={languageCode} />
+            {formSubmited &&
+              !formValid &&
+              params.messageShow &&
+              !messageClosed && (
+                <Message
+                  message={i18n.formErrorGeneric}
+                  onClickClose={handleMessageClickClose}
+                  onClick={handleMessageClick}
+                  hasCloseButton={params.messageHasCloseButton as boolean}
+                />
+              )}
+            <Actions languageCode={languageCode} onNext={handleOnNext} />
+          </S.ColumnsLeft>
+        </S.WrapperColumns>
       </S.Content>
     </S.Wrapper>
   )
