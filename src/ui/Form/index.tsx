@@ -52,7 +52,7 @@ const Form = ({
           key={index}
           {...fieldConfig}
           onChange={handleOnChange}
-          languageCode={languageCode}
+          languageCode={languageCode as string}
           forceValidate={forceValidate}
         />
       ))}

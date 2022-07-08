@@ -71,11 +71,17 @@ const Checkout = () => {
         'hideOnScroll'
       ].includes(key)
     ) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       queryParams[key] = router.query[key] === 'true'
     }
     if (['hideAfterXseconds'].includes(key)) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       queryParams[key] = parseInt(router.query[key])
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       queryParams[key] = router.query[key] as string
     }
   }
@@ -99,7 +105,7 @@ const Checkout = () => {
 
   // hideAfterXseconds
   const hideAfterXseconds = () => {
-    if (params.hideAfterXseconds > 0) {
+    if (params.hideAfterXseconds && params.hideAfterXseconds > 0) {
       setTimeout(function () {
         setMessageClosed(true)
       }, params.hideAfterXseconds * 1000)
