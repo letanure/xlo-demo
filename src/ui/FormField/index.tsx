@@ -107,7 +107,7 @@ const FormField = ({
   }
 
   return (
-    <S.WrapperField>
+    <S.WrapperField className={`FormField-${name}`}>
       <S.Label>
         {label}
         {validationRules.required && <span>*</span>}
