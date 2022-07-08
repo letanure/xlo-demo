@@ -27,6 +27,7 @@ interface Params {
   messageHasCloseButton?: boolean
   scrollToError?: boolean
   focusError?: boolean
+  hideOnScroll?: boolean
 }
 
 const Checkout = () => {
@@ -52,7 +53,8 @@ const Checkout = () => {
     messageCloseOnClick: false,
     messageHasCloseButton: true,
     scrollToError: true,
-    focusError: true
+    focusError: true,
+    hideOnScroll: false
   }
   const queryParams: Partial<Params> = {}
 
@@ -62,7 +64,8 @@ const Checkout = () => {
         'messageCloseOnClick',
         'messageShow',
         'messageHasCloseButton',
-        'scrollToError'
+        'scrollToError',
+        'hideOnScroll'
       ].includes(key)
     ) {
       queryParams[key] = router.query[key] === 'true'
@@ -76,6 +79,17 @@ const Checkout = () => {
     ...queryParams
   }
 
+  function hideOnScroll() {
+    let scrollTimeout: NodeJS.Timeout
+    addEventListener('scroll', function () {
+      clearTimeout(scrollTimeout)
+      scrollTimeout = setTimeout(function () {
+        console.log('hideOnScroll')
+        setMessageClosed(true)
+      }, 200)
+    })
+  }
+
   const languageCode = params.language
   const i18n: Language = languages[languageCode]
 
@@ -85,6 +99,9 @@ const Checkout = () => {
     setFormSubmited(true)
     params.scrollToError && scrollToFirstError()
     params.focusError && focusFirstError(params.scrollToError)
+    setTimeout(function () {
+      params.hideOnScroll && hideOnScroll()
+    }, 400)
   }
 
   const focusFirstError = (waitScroll = false) => {
