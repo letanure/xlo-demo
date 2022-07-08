@@ -101,21 +101,34 @@ export const Box = styled.div`
 `
 
 export const BoxPicName = styled(Box)`
-  display: flex;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  ${() => css`
+    display: flex;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    ${media.greaterThan('medium')`
+      display: block;
+    `}
+  `}
 `
 
 export const BoxNameLocal = styled(Box)`
   padding: 0 0 0 16px;
 `
 export const ProductImage = styled.img`
-  width: 130px;
-  height: 90px;
-  object-position: center center;
-  object-fit: cover;
-  flex-shrink: 0;
+  ${() => css`
+    width: 130px;
+    height: 90px;
+    object-position: center center;
+    object-fit: cover;
+    flex-shrink: 0;
+    ${media.greaterThan('medium')`
+      width: 265px;
+      height: 218px;
+      margin-bottom: 16px;
+    `}
+  `}
 `
+
 export const PriceDetail = styled.div``
 export const PriceDetailLine = styled.div`
   display: flex;
