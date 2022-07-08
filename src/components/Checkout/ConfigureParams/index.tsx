@@ -57,27 +57,32 @@ const ConfigureParams = () => {
     {
       name: 'scrollToError',
       languageCode: 'en',
+      placeholder: 'true / false',
       label: 'Scroll to first input with error?'
     },
     {
       name: 'focusError',
       languageCode: 'en',
+      placeholder: 'true / false',
       label: 'Focus the first input with error?'
     },
     {
       name: 'hideOnScroll',
       languageCode: 'en',
+      placeholder: 'true / false',
       label: 'Hide error message on scroll?'
     },
     {
       name: 'hideOnClickAnywhere',
       languageCode: 'en',
+      placeholder: 'true / false',
       label: 'Hide error message on click anywhere?'
     },
     {
       name: 'hideAfterXseconds',
       type: 'number',
       languageCode: 'en',
+      placeholder: '0 to disable or X seconds',
       label: 'Hide error message after X seconds?'
     }
   ]
