@@ -28,6 +28,7 @@ interface Params {
   scrollToError?: boolean
   focusError?: boolean
   hideOnScroll?: boolean
+  hideAfterXseconds?: number
 }
 
 const Checkout = () => {
@@ -39,8 +40,6 @@ const Checkout = () => {
   const router = useRouter()
 
   // fadein/out
-  // hide after x seconds
-  // hide on scroll
 
   const defaultParams: Params = {
     productName: 'Product Name',
@@ -54,7 +53,8 @@ const Checkout = () => {
     messageHasCloseButton: true,
     scrollToError: true,
     focusError: true,
-    hideOnScroll: false
+    hideOnScroll: false,
+    hideAfterXseconds: 0
   }
   const queryParams: Partial<Params> = {}
 
@@ -69,6 +69,9 @@ const Checkout = () => {
       ].includes(key)
     ) {
       queryParams[key] = router.query[key] === 'true'
+    }
+    if (['hideAfterXseconds'].includes(key)) {
+      queryParams[key] = parseInt(router.query[key])
     } else {
       queryParams[key] = router.query[key] as string
     }
@@ -79,12 +82,20 @@ const Checkout = () => {
     ...queryParams
   }
 
-  function hideOnScroll() {
+  // hideAfterXseconds
+  const hideAfterXseconds = () => {
+    if (params.hideAfterXseconds > 0) {
+      setTimeout(function () {
+        setMessageClosed(true)
+      }, params.hideAfterXseconds * 1000)
+    }
+  }
+
+  const hideOnScroll = () => {
     let scrollTimeout: NodeJS.Timeout
     addEventListener('scroll', function () {
       clearTimeout(scrollTimeout)
       scrollTimeout = setTimeout(function () {
-        console.log('hideOnScroll')
         setMessageClosed(true)
       }, 200)
     })
@@ -102,6 +113,7 @@ const Checkout = () => {
     setTimeout(function () {
       params.hideOnScroll && hideOnScroll()
     }, 400)
+    hideAfterXseconds()
   }
 
   const focusFirstError = (waitScroll = false) => {
