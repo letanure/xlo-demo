@@ -2,12 +2,13 @@ import * as S from './styles'
 
 interface Props {
   productName: string
+  productImage: string
 }
 
-const ProductInfo = ({ productName }: Props) => {
+const ProductInfo = ({ productName, productImage }: Props) => {
   return (
     <S.BoxPicName>
-      <S.ProductImage src="https://ireland.apollo.olxcdn.com:443/v1/files/7xcg29jvke3k1-PL/image;s=512x512" />
+      <S.ProductImage src={productImage} />
       <S.BoxNameLocal>
         <S.ProductNameMobile>{productName}</S.ProductNameMobile>
         <S.ProductInfo>Warsaw- 2022-06-29 19:47</S.ProductInfo>

@@ -19,6 +19,11 @@ const ConfigureParams = () => {
       label: 'Product name'
     },
     {
+      name: 'productImage',
+      languageCode: 'en',
+      label: 'Product image'
+    },
+    {
       name: 'priceItem',
       languageCode: 'en',
       type: 'number',
