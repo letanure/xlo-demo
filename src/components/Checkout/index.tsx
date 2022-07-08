@@ -28,6 +28,7 @@ interface Params {
   scrollToError?: boolean
   focusError?: boolean
   hideOnScroll?: boolean
+  hideOnClickAnywhere?: boolean
   hideAfterXseconds?: number
 }
 
@@ -54,6 +55,7 @@ const Checkout = () => {
     scrollToError: true,
     focusError: true,
     hideOnScroll: false,
+    hideOnClickAnywhere: true,
     hideAfterXseconds: 0
   }
   const queryParams: Partial<Params> = {}
@@ -65,6 +67,7 @@ const Checkout = () => {
         'messageShow',
         'messageHasCloseButton',
         'scrollToError',
+        'hideOnClickAnywhere',
         'hideOnScroll'
       ].includes(key)
     ) {
@@ -80,6 +83,18 @@ const Checkout = () => {
   const params: Params = {
     ...defaultParams,
     ...queryParams
+  }
+
+  const hideOnClickAnywhere = () => {
+    setTimeout(function () {
+      document.body.addEventListener(
+        'click',
+        () => {
+          setMessageClosed(true)
+        },
+        { once: true }
+      )
+    }, 400)
   }
 
   // hideAfterXseconds
@@ -110,6 +125,7 @@ const Checkout = () => {
     setFormSubmited(true)
     params.scrollToError && scrollToFirstError()
     params.focusError && focusFirstError(params.scrollToError)
+    params.hideOnClickAnywhere && hideOnClickAnywhere()
     setTimeout(function () {
       params.hideOnScroll && hideOnScroll()
     }, 400)
