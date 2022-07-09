@@ -120,6 +120,7 @@ const FormField = ({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         hasError={!fieldData.valid && errorMessage}
+        isValid={fieldData.valid}
       />
       {!fieldData.valid && errorMessage && (
         <S.ErrorMessage>{errorMessage}</S.ErrorMessage>

@@ -19,10 +19,10 @@ export const Label = styled.div`
   padding-bottom: 6px;
 `
 
-type InputProps = { hasError: boolean }
+type InputProps = { hasError: boolean; isValid: boolean }
 
 export const Input = styled.input<InputProps>`
-  ${({ hasError }) => css`
+  ${({ hasError, isValid }) => css`
     -webkit-text-size-adjust: 100%;
     font-family: inherit;
     margin: 0;
@@ -42,6 +42,13 @@ export const Input = styled.input<InputProps>`
     width: 100%;
     box-sizing: border-box;
     height: 48px;
+    ${isValid &&
+    css`
+      background-image: url(/img/icon-valid.svg);
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position: 98% center;
+    `}
     ${hasError &&
     css`
       border-bottom: 2px solid rgb(255, 86, 54);
