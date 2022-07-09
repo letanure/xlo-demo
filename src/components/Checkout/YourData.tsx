@@ -78,7 +78,6 @@ const YourData = ({ languageCode, forceValidate = false, onChange }: Props) => {
       languageCode: languageCode,
       label: i18n.formApartmentNumber,
       validationRules: {
-        required: true,
         max: 5
       }
     },

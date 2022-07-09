@@ -12,6 +12,11 @@ export const Form = styled.form`
       label{
         width: calc(50% - 36px);
       }
+      .FormField-apartmentNumber{
+        [class*="__Label"]{
+          height: 36px;
+        }
+      }
       .FormField-street{
         [class*="__Label"]{
           padding-top: calc(42px - 24px);
