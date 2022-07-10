@@ -161,14 +161,20 @@ const Checkout = () => {
     let scrollTimeout: NodeJS.Timeout
     const firstInvalidField = formData?.fieldData.find((field) => !field.valid)
     if (waitScroll) {
-      addEventListener('scroll', function () {
-        clearTimeout(scrollTimeout)
-        scrollTimeout = setTimeout(function () {
-          if (firstInvalidField?.ref.current) {
-            firstInvalidField.ref.current.focus()
-          }
-        }, 200)
-      })
+      addEventListener(
+        'scroll',
+        function () {
+          clearTimeout(scrollTimeout)
+          scrollTimeout = setTimeout(function () {
+            if (firstInvalidField?.ref.current) {
+              firstInvalidField.ref.current.focus({
+                preventScroll: true
+              })
+            }
+          }, 200)
+        },
+        { once: true }
+      )
     } else {
       if (firstInvalidField?.ref.current) {
         firstInvalidField.ref.current.focus({ preventScroll: false })
