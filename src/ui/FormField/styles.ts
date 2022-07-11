@@ -19,7 +19,31 @@ export const Label = styled.div`
   padding-bottom: 6px;
 `
 
-type InputProps = { hasError: boolean; isValid: boolean }
+type InputProps = { hasError?: boolean; isValid: boolean }
+
+export const Select = styled.select<InputProps>`
+  ${() => css`
+    -webkit-text-size-adjust: 100%;
+    font-family: inherit;
+    margin: 0;
+    overflow: visible;
+    font-size: 16px;
+    color: rgb(0, 47, 52);
+    background-color: rgb(242, 244, 245);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    border-bottom: 2px solid rgb(242, 244, 245);
+    border-radius: 4px;
+    line-height: 20px;
+    outline: 0px;
+    padding: 14px 48px 14px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+  `}
+`
 
 export const Input = styled.input<InputProps>`
   ${({ hasError, isValid }) => css`

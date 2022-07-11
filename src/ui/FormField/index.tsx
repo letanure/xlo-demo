@@ -11,9 +11,15 @@ interface ValidationRules {
   postalCode?: boolean
 }
 
+type FieldOption = {
+  value: string | boolean | number
+  label: string
+}
+type FieldOptions = FieldOption[]
+
 export type FieldData = {
   name: string
-  value: string | undefined
+  value: string | boolean | number | undefined
   valid: boolean
   touched: boolean
   changed: boolean
@@ -23,8 +29,10 @@ export type FieldData = {
 export interface Props {
   label: string
   name: string
+  value?: string | boolean | number | undefined
+  options?: FieldOptions
   placeholder?: string
-  type?: 'text' | 'email' | 'password' | 'number'
+  type?: 'text' | 'email' | 'password' | 'number' | 'select'
   validationRules?: ValidationRules
   onChange: (data: FieldData) => void
   languageCode: string
@@ -35,6 +43,8 @@ const FormField = ({
   name,
   placeholder = '',
   type = 'text',
+  options,
+  value,
   validationRules = {},
   onChange,
   languageCode,
@@ -45,7 +55,7 @@ const FormField = ({
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [fieldData, setFieldData] = useState<FieldData>({
     name: name,
-    value: '',
+    value: value,
     valid: false,
     touched: false,
     changed: false,
@@ -112,16 +122,37 @@ const FormField = ({
         {label}
         {validationRules.required && <span>*</span>}
       </S.Label>
-      <S.Input
-        ref={ref}
-        type={type}
-        placeholder={placeholder}
-        onChange={(e) => handleOnChange(e.target.value)}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        hasError={!fieldData.valid && errorMessage}
-        isValid={fieldData.valid}
-      />
+      {['select'].includes(type) && (
+        <S.Select
+          hasError={(!fieldData.valid as boolean) && (errorMessage as string)}
+          isValid={fieldData.valid}
+          name={name}
+          onChange={(e) => handleOnChange(e.target.value)}
+          placeholder={placeholder}
+          value={fieldData.value as string}
+        >
+          {placeholder && <option value="">{placeholder}</option>}
+          {options &&
+            options.map((option: FieldOption, index) => (
+              <option key={index} value={option.value as string}>
+                {option.label}
+              </option>
+            ))}
+        </S.Select>
+      )}
+      {['text', 'email', 'number', 'password'].includes(type) && (
+        <S.Input
+          ref={ref}
+          type={type}
+          placeholder={placeholder}
+          value={fieldData.value as string}
+          onChange={(e) => handleOnChange(e.target.value)}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          hasError={!fieldData.valid && errorMessage}
+          isValid={fieldData.valid}
+        />
+      )}
       {!fieldData.valid && errorMessage && (
         <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
       )}
