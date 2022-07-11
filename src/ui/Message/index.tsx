@@ -19,7 +19,7 @@ const Message = ({
     onClick && onClick()
   }
   return (
-    <S.Wrapper onClick={handleOnClick}>
+    <S.Wrapper onClick={handleOnClick} hasCloseButton={hasCloseButton}>
       <S.Icon src="/img/icon-warning.svg" />
       <S.Text>{message}</S.Text>
       {hasCloseButton && <S.ButtonClose onClick={handleOnClickClose} />}

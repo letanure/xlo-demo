@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import QRCode from 'react-qr-code'
 import {} from 'next/router'
 import * as S from './styles'
 import Form, { Props as FormProps, FormData } from '../../../ui/Form/'
@@ -200,9 +201,11 @@ const ConfigureParams = ({ defaultParams }: Props) => {
   const handleOnChange = (formData: FormData) => {
     const newParamsString = formData.fieldData
       .filter(({ value }) => value !== '')
-      .map(({ name, value }) => `${name}=${value}`)
+      .map(
+        ({ name, value }) => `${name}=${encodeURIComponent(value as string)}`
+      )
       .join('&')
-    setUrl(`${window.location.pathname}?${newParamsString}`)
+    setUrl(`${window.location.href}?${newParamsString}`)
   }
 
   return (
@@ -218,9 +221,14 @@ const ConfigureParams = ({ defaultParams }: Props) => {
             />
           </S.BoxContent>
           <S.BoxFooter>
-            <a href={url} target="_blank" rel="noreferrer">
-              Open new URL
-            </a>
+            <div>
+              <a href={url} target="_blank" rel="noreferrer">
+                Open new URL
+              </a>
+              <br />
+              <br />
+            </div>
+            <QRCode value={url} />
           </S.BoxFooter>
         </S.Box>
       )}
