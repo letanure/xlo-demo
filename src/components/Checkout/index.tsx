@@ -63,7 +63,7 @@ const Checkout = () => {
     priceService: 20,
     messageShow: true,
     messageCloseOnClick: false,
-    messageHasCloseButton: false,
+    messageHasCloseButton: true,
     scrollToError: true,
     focusError: true,
     hideOnScroll: false,

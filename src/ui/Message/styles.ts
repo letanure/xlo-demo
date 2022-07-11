@@ -1,8 +1,12 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div`
-  ${() => css`
+type WrapperProps = {
+  hasCloseButton?: boolean
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ hasCloseButton }) => css`
     background-color: #fff6d9;
     color: #002f34;
     font-weight: 400;
@@ -13,8 +17,14 @@ export const Wrapper = styled.div`
     flex-wrap: nowrap;
     align-content: center;
     justify-content: space-between;
+
     align-items: center;
     margin: 0 16px;
+
+    ${!hasCloseButton &&
+    `
+      justify-content: space-evenly;
+    `}
 
     position: sticky;
     bottom: 80px;
