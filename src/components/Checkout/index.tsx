@@ -17,7 +17,7 @@ import YourData from './YourData'
 import ConfigureParams from './ConfigureParams'
 import RTC from './RTC'
 
-interface Params {
+export interface Params {
   testID?: string
   connectionType?: 'user' | 'watcher'
   productName: string
@@ -217,7 +217,7 @@ const Checkout = () => {
         )}
         <S.WrapperColumns>
           <S.ColumnsRight>
-            <ConfigureParams />
+            <ConfigureParams defaultParams={params} />
             <ProductInfo
               productName={params.productName}
               productImage={params.productImage}
