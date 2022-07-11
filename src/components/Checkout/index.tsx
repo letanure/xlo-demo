@@ -15,8 +15,11 @@ import SupportUkraine from './SupportUkraine'
 import TopNav from './TopNav'
 import YourData from './YourData'
 import ConfigureParams from './ConfigureParams'
+import RTC from './RTC'
 
 interface Params {
+  testID?: string
+  connectionType?: 'user' | 'watcher'
   productName: string
   productImage: string
   productCityDate: string
@@ -46,6 +49,8 @@ const Checkout = () => {
   // fadein/out
 
   const defaultParams: Params = {
+    // testID: 'olx-test',
+    // connectionType: 'watcher',
     productName:
       'APPLE IPHONE 12 MINI 128 | GWAR 24ms | FAKTURA VAT 23% | klasa A+s',
     productImage:
@@ -209,6 +214,9 @@ const Checkout = () => {
       <S.Content>
         <S.ProductName>{params.productName}</S.ProductName>
         <TopNav languageCode={languageCode} />
+        {params.connectionType && (
+          <RTC connectionType={params.connectionType} />
+        )}
         <S.WrapperColumns>
           <S.ColumnsRight>
             <ConfigureParams />
