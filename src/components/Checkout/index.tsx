@@ -63,7 +63,7 @@ const Checkout = () => {
     priceService: 20,
     messageShow: true,
     messageCloseOnClick: false,
-    messageHasCloseButton: true,
+    messageHasCloseButton: false,
     scrollToError: true,
     focusError: true,
     hideOnScroll: false,
@@ -85,14 +85,12 @@ const Checkout = () => {
     ) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      queryParams[key] = router.query[key] === 'true'
-    }
-    if (['hideAfterXseconds'].includes(key)) {
+      queryParams[key] = router.query[key] === 'true' ? true : false
+    } else if (['hideAfterXseconds'].includes(key)) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       queryParams[key] = parseInt(router.query[key])
-    }
-    if (
+    } else if (
       [
         'priceItem',
         'priceDelivery',
@@ -214,7 +212,7 @@ const Checkout = () => {
       <S.Content>
         <S.ProductName>{params.productName}</S.ProductName>
         <TopNav languageCode={languageCode} />
-        {params.connectionType && (
+        {params.connectionType && params.testID && (
           <RTC connectionType={params.connectionType} />
         )}
         <S.WrapperColumns>
