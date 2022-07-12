@@ -124,7 +124,6 @@ const FormField = ({
       </S.Label>
       {['select'].includes(type) && (
         <S.Select
-          hasError={(!fieldData.valid as boolean) && (errorMessage as string)}
           isValid={fieldData.valid}
           name={name}
           onChange={(e) => handleOnChange(e.target.value)}
