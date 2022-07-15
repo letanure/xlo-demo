@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BuyWithDelivery /> should render something 1`] = `
+.c0 {
+  content: 'default';
+}
+
+<div
+  class="c0"
+>
+  <h1>
+    BuyWithDelivery with 
+    default
+     2
+  </h1>
+</div>
+`
