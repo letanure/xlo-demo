@@ -4,8 +4,8 @@ import * as S from './styles'
 type CurrencyCode = 'PLN' | 'RON'
 
 export type PriceProps = {
-  amount?: number
-  currency?: CurrencyCode
+  amount: number
+  currency: CurrencyCode
 }
 
 type LanguageCodesObject = {
@@ -24,7 +24,7 @@ const Price = ({ amount, currency }: PriceProps) => {
       style: 'currency',
       currency: currency
     }
-  ).format(amount as number)
+  ).format((amount as number) / 100)
 
   return <S.Wrapper>{formatedPrice}</S.Wrapper>
 }
