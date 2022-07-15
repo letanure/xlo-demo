@@ -6,7 +6,7 @@ export default {
   title: 'Layout/BuyWithDelivery',
   component: BuyWithDelivery,
   argTypes: {
-    prop1: { control: 'text' }
+    title: { control: 'text' }
   }
 } as ComponentMeta<typeof BuyWithDelivery>
 
@@ -16,5 +16,5 @@ const Template: ComponentStory<typeof BuyWithDelivery> = (args) => (
 
 export const Basic = Template.bind({})
 Basic.args = {
-  prop1: 'something'
+  title: 'BUY with delivery'
 }
