@@ -48,12 +48,12 @@ const grid = {
 }
 
 const fontSizes: Sizes = {
-  xsmall: '1.2rem',
-  small: '1.4rem',
-  medium: '1.6rem',
-  large: '1.8rem',
-  xlarge: '2.0rem',
-  xxlarge: '2.8rem'
+  xsmall: '12px',
+  small: '14px',
+  medium: '16px',
+  large: '18px',
+  xlarge: '20px',
+  xxlarge: '22px'
 }
 
 const font = {
@@ -72,24 +72,33 @@ const font = {
     }
   },
   size: fontSizes,
+  lineHeight: {
+    xsmall: '14px',
+    small: '16px',
+    medium: '18px',
+    large: '20px',
+    xlarge: '22px',
+    xxlarge: '24px'
+  },
   weight: {
     light: 300,
     normal: 400,
-    bold: 600
+    bold1: 500,
+    bold2: 600
   }
 }
 
 const color_black: ColorDefinition = {
-  c050: '#383838',
-  c100: '#363636',
-  c200: '#333333',
-  c300: '#2e2e2e',
-  c400: '#2c2c2c',
-  c500: '#272727',
-  c600: '#252525',
-  c700: '#232323',
-  c800: '#1e1e1e',
-  c900: '#121212',
+  c050: '#406367',
+  c100: '#7F9799',
+  c200: '#406367',
+  c300: '#406367',
+  c400: '#002F34',
+  c500: '#002F34',
+  c600: '#002F34',
+  c700: '#002F34',
+  c800: '#002F34',
+  c900: '#002F34',
   lightFrom: 0
 }
 
@@ -155,13 +164,14 @@ const border = {
 }
 
 const spacing = {
-  xxsmall: '0.8rem',
-  xsmall: '1.6rem',
-  small: '2.4rem',
-  medium: '3.2rem',
-  large: '4.0rem',
-  xlarge: '4.8rem',
-  xxlarge: '5.6rem'
+  xxxsmall: '8px',
+  xxsmall: '10px',
+  xsmall: '12px',
+  small: '14px',
+  medium: '16px',
+  large: '18px',
+  xlarge: '20px',
+  xxlarge: '22px'
 }
 
 export default {
