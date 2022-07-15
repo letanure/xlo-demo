@@ -15,7 +15,8 @@
     "test:ci": "jest --runInBand",
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "build-storybook -s ./public"
+    "build-storybook": "build-storybook -s ./public",
+    "chromatic": "npx chromatic --project-token=d0fcfce73281"
   },
   "lint-staged": {
     "src/**/*": [
@@ -53,6 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.5.0",
     "babel-plugin-styled-components": "^2.0.2",
+    "chromatic": "^6.7.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.5.0",
@@ -77,6 +79,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/letanure/react-next-boilerplate.git"
-  }
+    "url": "git+https://github.com/letanure/react-next-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/letanure/react-next-boilerplate/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/letanure/react-next-boilerplate#readme",
+  "_id": "react-next-boilerplate@0.0.0-development"
 }
