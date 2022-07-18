@@ -12,7 +12,7 @@ yarn dev
 #Generate UI  / Regular components
 
 ```bash
-yarn generate
+yarn generate [component type]
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
