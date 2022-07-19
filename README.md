@@ -9,7 +9,7 @@ npm run dev
 # or
 yarn dev
 
-#Generate UI  / Regular components
+#Generate UI  / Regular component
 
 ```bash
 yarn generate [component type]
