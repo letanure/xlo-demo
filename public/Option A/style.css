@@ -1,0 +1,55 @@
+html {
+	background-color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #002f34;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+form {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 400px;
+	padding: 16px;
+	box-sizing: border-box;
+	
+}
+input {
+	background-color:#f2f4f5;
+	border: none;
+	padding:8px;
+	border-radius: 4px;
+	margin-bottom: 24px;
+	width: 100%;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+input.input-prefix {
+	width: 90%;
+}
+
+span.prefix {
+	padding-top: 6px;
+	display: block;
+	float: left;
+	width: 10%;
+	box-sizing: border-box;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+}
+
+div {
+  margin: 0 0 1rem 0;
+}
+
+.header {
+	padding: 8px;
+	background-color: rgb(0, 47, 52);
+}

