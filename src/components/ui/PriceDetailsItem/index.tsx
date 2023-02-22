@@ -1,13 +1,15 @@
 import * as S from './styles'
-import Price, { PriceProps as PriceType } from '../Price'
+import Price, { PriceProps } from '../Price'
 import Icon, { IconProps } from '../Icon'
+import Tag, { TagProps } from '../Tag'
 
 export type PriceDetailsItemProps = {
   description?: string
-  discount?: PriceType
+  discount?: PriceProps
   icon?: IconProps['name']
   label: string
-  price?: PriceType
+  price?: PriceProps
+  tag?: TagProps
 }
 
 const PriceDetailsItem = ({
@@ -15,7 +17,8 @@ const PriceDetailsItem = ({
   discount,
   icon,
   label,
-  price
+  price,
+  tag
 }: PriceDetailsItemProps) => (
   <S.Wrapper>
     <S.Label>
@@ -27,6 +30,11 @@ const PriceDetailsItem = ({
       <S.LabelText>{label}</S.LabelText>
     </S.Label>
     <S.Price>
+      {tag && (
+        <S.PriceTag>
+          <Tag {...tag} />
+        </S.PriceTag>
+      )}
       {price && (
         <S.PriceRegular>
           <Price {...price} />

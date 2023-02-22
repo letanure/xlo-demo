@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Icon from '.'
 
 export default {
-  title: 'Layout/Icon',
+  title: 'UI/Icon',
   component: Icon,
   argTypes: {
     name: { control: 'text' },

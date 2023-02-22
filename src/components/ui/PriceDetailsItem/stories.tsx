@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import PriceDetailsItem from '.'
 
 export default {
-  title: 'Layout/PriceDetailsItem',
+  title: 'Checkout/PriceDetailsItem',
   component: PriceDetailsItem,
   argTypes: {
     label: { control: 'text' },
@@ -60,6 +60,14 @@ Discount.args = {
   }
 }
 
+export const Tag = Template.bind({})
+Tag.args = {
+  label: 'Label',
+  tag: {
+    text: 'FREE'
+  }
+}
+
 export const All = Template.bind({})
 All.args = {
   label: 'Label',
@@ -70,6 +78,10 @@ All.args = {
   discount: {
     amount: 15000,
     currency: 'PLN'
+  },
+  icon: 'info',
+  tag: {
+    text: 'FREE'
   },
   description:
     'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.'

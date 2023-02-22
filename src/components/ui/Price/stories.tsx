@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Price from '.'
 
 export default {
-  title: 'Layout/Price',
+  title: 'UI/Price',
   component: Price,
   argTypes: {
     amount: { control: 'number' },

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 24px;
+    column-gap: 16px;
   `}
 `
 
@@ -17,7 +18,7 @@ export const Label = styled.div`
     font-weight: ${theme.font.weight.normal};
     line-height: ${theme.font.lineHeight.large};
     text-align: left;
-    width: 50%;
+    width: calc(50% - 8px);
   `}
 `
 export const LabelIcon = styled.div`
@@ -27,7 +28,9 @@ export const LabelIcon = styled.div`
 `
 
 export const LabelText = styled.div`
-  ${() => css``}
+  ${() => css`
+    text-transform: uppercase;
+  `}
 `
 
 export const Price = styled.div`
@@ -37,7 +40,13 @@ export const Price = styled.div`
     font-weight: ${theme.font.weight.bold1};
     line-height: ${theme.font.lineHeight.large};
     text-align: left;
-    width: 50%;
+    width: calc(50% - 8px);
+  `}
+`
+
+export const PriceTag = styled.span`
+  ${({ theme }) => css`
+    margin-right: ${theme.spacing.xxxsmall};
   `}
 `
 

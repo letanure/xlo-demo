@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import BuyWithDelivery from '.'
 
 export default {
-  title: 'Layout/BuyWithDelivery',
+  title: 'Checkout/BuyWithDelivery',
   component: BuyWithDelivery,
   argTypes: {
     title: { control: 'text' }

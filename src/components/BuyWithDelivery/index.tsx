@@ -34,6 +34,14 @@ const BuyWithDelivery = ({ title = 'default' }: BuyWithDeliveryProps) => {
         amount: 250,
         currency: 'PLN'
       }
+    },
+    {
+      label: 'SAFE DEAL',
+      tag: {
+        text: 'FREE'
+      },
+      description:
+        'You have 24 hours to confirm that the item you ordered was in the package. Was the package empty or contained the wrong item? Submit a ticket to get your money back. How the Protection Package works'
     }
   ]
   return (
